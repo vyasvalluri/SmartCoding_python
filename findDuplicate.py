@@ -30,6 +30,16 @@ def findDuplicate3(ind):
         aux[tmp] = True
     return sys.minvalue
 
+def findDuplicate4(ind):
+    l = len(ind)
+    for i in range(l):
+        tmp = abs(ind[i])
+        if(ind[tmp] < 0) :
+            return tmp
+        ind[tmp] *= -1
+    return sys.minvalue
+
+
 def testcase1(ind):
     n = len(ind)
     for i in range(n-1):
@@ -41,7 +51,7 @@ def main():
     ind = [int] * n
     testcase1(ind)
     start = time.time()
-    print(findDuplicate3(ind))
+    print(findDuplicate2(ind))
     end = time.time()
     print("time : ", (end - start))
 
